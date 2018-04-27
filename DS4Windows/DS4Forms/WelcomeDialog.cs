@@ -39,13 +39,21 @@ namespace DS4Windows
         bool driverinstalling = false;
         private void bnStep1_Click(object sender, EventArgs e)
         {
-            WebClient wb = new WebClient();
-            if (!driverinstalling)
+            try
             {
-                wb.DownloadFileAsync(new Uri("http://ds4windows.com/Files/Virtual Bus Driver.zip"), exepath + "\\VBus.zip");
-                wb.DownloadProgressChanged += wb_DownloadProgressChanged;
-                wb.DownloadFileCompleted += wb_DownloadFileCompleted;
-                driverinstalling = true;
+                WebClient wb = new WebClient();
+                if (!driverinstalling)
+                {
+                    //wb.DownloadFileAsync(new Uri("http://ds4windows.com/Files/Virtual Bus Driver.zip"), exepath + "\\VBus.zip");
+                    wb.DownloadFileAsync(new Uri("https://web.archive.org/web/20170311022846/http://ds4windows.com/Files/Virtual%20Bus%20Driver.zip"), exepath + "\\VBus.zip");
+                    wb.DownloadProgressChanged += wb_DownloadProgressChanged;
+                    wb.DownloadFileCompleted += wb_DownloadFileCompleted;
+                    driverinstalling = true;
+                }
+            }
+            catch
+            {
+                //Launch serial bus
             }
         }
 
