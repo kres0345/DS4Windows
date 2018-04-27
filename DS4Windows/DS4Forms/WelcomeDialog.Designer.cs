@@ -118,6 +118,7 @@
             this.Controls.Add(this.labelUSB);
             this.Controls.Add(this.labelBluetooth2);
             this.Name = "WelcomeDialog";
+            this.Load += new System.EventHandler(this.WelcomeDialog_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -53,7 +53,48 @@ namespace DS4Windows
             }
             catch
             {
-                //Launch serial bus
+                //Launch driver installer
+                try //Is file already installed and ready to start?
+                {
+                    try //If files isnt found
+                    {
+                        try //Can I start file with "si" parameter?
+                        {
+                            Process.Start(exepath + "\\Virtual Bus Driver\\ScpDriver.exe", "si");
+                        }
+                        catch //No can do.
+                        {
+                            Process.Start(exepath + "\\Virtual Bus Driver\\ScpDriver.exe");
+                        }
+                    }
+                    catch //Is file here?
+                    {
+                        try //Can I start dis file with "si" parameter?
+                        {
+                            Process.Start(exepath + "\\ScpDriver.exe", "si"); //If the driver is somewhere else
+                        }
+                        catch //Lets try without
+                        {
+                            Process.Start(exepath + "\\ScpDriver.exe"); //If the driver is somewhere else
+                        }
+                    }
+                }
+                catch //Nope, apparently not, Lets try to extract from file "VBus.zip".
+                {
+                    Directory.CreateDirectory(exepath + "\\Virtual Bus Driver"); //Lets create a folder for the extract file
+                    try { ZipFile.ExtractToDirectory(exepath + "\\VBus.zip", exepath + "\\Virtual Bus Driver"); } //Saved so the user can uninstall later
+                    catch { }
+                    try { ZipFile.ExtractToDirectory(exepath + "\\VBus.zip", exepath); }
+                    //Made here as starting the scpdriver.exe via process.start, the program looks for file from where it was called, not where the exe is
+                    catch { }
+                    if (File.Exists(exepath + "\\ScpDriver.exe"))
+                        try
+                        {
+                            Process.Start(exepath + "\\ScpDriver.exe", "si");
+                            bnStep1.Text = Properties.Resources.Installing;
+                        }
+                        catch { Process.Start(exepath + "\\Virtual Bus Driver"); }
+                }                
             }
         }
 
@@ -140,6 +181,11 @@ namespace DS4Windows
         private void button2_Click(object sender, EventArgs e)
         {
              Process.Start("http://www.microsoft.com/hardware/en-us/d/xbox-360-controller-for-windows");
+        }
+
+        private void WelcomeDialog_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
