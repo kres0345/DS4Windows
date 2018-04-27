@@ -39,6 +39,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.bnFinish = new System.Windows.Forms.Button();
             this.linkBluetoothSettings = new System.Windows.Forms.LinkLabel();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -102,11 +103,19 @@
             this.linkBluetoothSettings.TabStop = true;
             this.linkBluetoothSettings.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkBluetoothSettings_LinkClicked);
             // 
+            // button1
+            // 
+            resources.ApplyResources(this.button1, "button1");
+            this.button1.Name = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // WelcomeDialog
             // 
             this.AcceptButton = this.bnFinish;
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.linkBluetoothSettings);
             this.Controls.Add(this.labelBluetooth);
             this.Controls.Add(this.pictureBox1);
@@ -137,5 +146,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button bnFinish;
         private System.Windows.Forms.LinkLabel linkBluetoothSettings;
+        private System.Windows.Forms.Button button1;
     }
 }

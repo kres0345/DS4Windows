@@ -187,5 +187,15 @@ namespace DS4Windows
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string message = "You need to open 'Virtual Bus Driver\\ScpDriver.exe' and select install.";
+            string caption = "Info";
+            MessageBoxButtons buttons = MessageBoxButtons.OK;
+            DialogResult result;
+            result = MessageBox.Show(message, caption, buttons);
+            Process.Start(exepath);
+        }
     }
 }
