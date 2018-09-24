@@ -5,7 +5,7 @@ DS4Windows is a portable program that allows you to get the best experience whil
 
 You can find the my newest and only version [here](https://github.com/kres0345/DS4Windows2018Working/releases)
 
-NOTE THIS ISNT MY TOOL I JUST FIXED IT BECOUSE IT WASNT KEPT UP TO DATE WITH THE LATEST VERSION OF WINDOWS 10. Note 2 I wont keep updating it either.
+NOTE THIS ISNT MY TOOL I JUST FIXED IT BECOUSE IT WASNT KEPT UP TO DATE WITH THE LATEST VERSION OF WINDOWS 10. Note 2 I wont keep updating it either. Note 3 I will try to keep it updated
 
 ## Requirements
 
